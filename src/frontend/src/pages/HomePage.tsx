@@ -842,6 +842,64 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Service Areas – internal links for SEO */}
+      <section
+        id="service-areas"
+        className="py-16 md:py-20 bg-muted/40"
+        aria-label="Bond cleaning service areas in Melbourne"
+      >
+        <div className="container max-w-4xl text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Bond Cleaning Across Melbourne's Best Suburbs
+          </h2>
+          <p className="text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Tru Melbourne Bond Cleaners services all major Melbourne suburbs.
+            Click your suburb below to see local pricing, tips, and what's
+            included in your bond clean.
+          </p>
+          <ul
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3"
+            aria-label="Melbourne suburb bond cleaning pages"
+          >
+            {[
+              { name: "South Yarra", slug: "south-yarra" },
+              { name: "Richmond", slug: "richmond" },
+              { name: "St Kilda", slug: "st-kilda" },
+              { name: "Fitzroy", slug: "fitzroy" },
+              { name: "Carlton", slug: "carlton" },
+              { name: "Collingwood", slug: "collingwood" },
+              { name: "Hawthorn", slug: "hawthorn" },
+              { name: "Prahran", slug: "prahran" },
+              { name: "Toorak", slug: "toorak" },
+              { name: "Docklands", slug: "docklands" },
+            ].map((suburb) => (
+              <li key={suburb.slug}>
+                <Link
+                  to="/suburbs/$suburbSlug"
+                  params={{ suburbSlug: suburb.slug }}
+                  data-ocid={`service-areas.${suburb.slug}.link`}
+                  className="block rounded-xl border border-border bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors px-4 py-3 text-sm font-semibold text-foreground shadow-sm"
+                  aria-label={`Bond cleaning in ${suburb.name}, Melbourne`}
+                >
+                  {suburb.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm text-muted-foreground">
+            Don't see your suburb?{" "}
+            <a
+              href="#contact"
+              data-ocid="service-areas.contact.link"
+              className="text-primary underline underline-offset-4 hover:text-primary/80"
+            >
+              Contact us
+            </a>{" "}
+            — we cover all of Melbourne and surrounding areas.
+          </p>
+        </div>
+      </section>
+
       {/* Contact form */}
       <section
         id="contact"
